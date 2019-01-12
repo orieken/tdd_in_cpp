@@ -3,7 +3,7 @@ project(tdd_in_cpp)
 
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
 
-set(SOURCE_FILES main.cpp ./src/SondexTest.cpp)
+set(SOURCE_FILES main.cpp ./src/SoundexTest.cpp)
 add_executable(tdd_in_cpp ${SOURCE_FILES})
 
 include_directories(/usr/local/include)
