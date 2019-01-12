@@ -16,5 +16,21 @@ TEST_F(SoundexEncoding, PadsWithZerosToEnsureThreeDigits) {
 }
 
 TEST_F(SoundexEncoding, ReplacesConstantsWithAppropriateDigits) {
-    ASSERT_THAT(soundex.encode("Ab"), Eq("A100"));
+    EXPECT_THAT(soundex.encode("Ax"), Eq("A200"));
+}
+
+TEST_F(SoundexEncoding, IgnoresNonAplhabetics) {
+    ASSERT_THAT(soundex.encode("A#"), Eq("A000"));
+}
+
+TEST_F(SoundexEncoding, ReplacesMultipleConsonantsWithDigits) {
+    ASSERT_THAT(soundex.encode("Acdl"), Eq("A234"));
+}
+
+TEST_F(SoundexEncoding, LimitsLengthToFourCharacters) {
+    ASSERT_THAT(soundex.encode("Dcdld").length(), Eq(4u));
+}
+
+TEST_F(SoundexEncoding, IgnoresVowelLikeLEtters) {
+    ASSERT_THAT(soundex.encode("Baeiouhycdl"), Eq("B234"));
 }
