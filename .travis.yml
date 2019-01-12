@@ -1,5 +1,4 @@
 language: cpp
 script:
-  - pwd
-  - make Makefile
+  - make tdd_in_cpp
   - ./tdd_in_cpp
