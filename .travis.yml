@@ -1,5 +1,4 @@
 language: cpp
 script:
-  - cmake -DCMAKE_CXX_COMPILER="c++" -DCMAKE_CXX_FLAGS="-std=c++11" .
-  - make install
-  - make tdd_in_cpp
+#  - mkdir install && cd install && cmake -DCMAKE_CXX_COMPILER="c++" -DCMAKE_CXX_FLAGS="-std=c++11" ../
+  - make gtest
