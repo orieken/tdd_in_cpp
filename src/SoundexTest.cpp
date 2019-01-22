@@ -2,6 +2,7 @@
 #include "Soundex.h"
 
 using ::testing::Eq;
+using ::testing::StartsWith;
 
 class SoundexEncoding: public testing::Test {
 public: Soundex soundex;
@@ -13,6 +14,10 @@ TEST_F(SoundexEncoding, RetainsSoleLetterOfOneLetterWord) {
 
 TEST_F(SoundexEncoding, PadsWithZerosToEnsureThreeDigits) {
   ASSERT_THAT(soundex.encode("I"), Eq("I000"));
+}
+
+TEST_F(SoundexEncoding, UppercasesFirstLetter) {
+    ASSERT_THAT(soundex.encode("abcd"), StartsWith("A"));
 }
 
 TEST_F(SoundexEncoding, ReplacesConstantsWithAppropriateDigits) {
