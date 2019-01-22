@@ -26,3 +26,8 @@ source ~/.zshrc  #reload shell
 ```
 make && ./tdd_in_cpp 
 ```
+
+
+## watching files and running
+* install [entr](http://eradman.com/entrproject/): `brew install entr`
+* run task `ag -l | entr -s 'make && ./tdd_in_cpp'`
